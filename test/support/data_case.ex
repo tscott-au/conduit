@@ -21,17 +21,12 @@ defmodule Conduit.DataCase do
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
+      import Conduit.Factory
       import Conduit.DataCase
     end
   end
 
   setup _tags do
-    # :ok = Ecto.Adapters.SQL.Sandbox.checkout(Conduit.Repo)
-
-    # unless tags[:async] do
-    #   Ecto.Adapters.SQL.Sandbox.mode(Conduit.Repo, {:shared, self()})
-    # end
-
     :ok
   end
 
