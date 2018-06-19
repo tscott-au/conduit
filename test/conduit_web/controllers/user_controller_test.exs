@@ -4,7 +4,7 @@ defmodule ConduitWeb.UserControllerTest do
   import Conduit.Factory
 
   alias Conduit.Accounts
-  alias Conduit.Accounts.User
+  # alias Conduit.Accounts.User
 
   def fixture(:user, attrs \\ []) do
     build(:user, attrs) |> Accounts.create_user()
