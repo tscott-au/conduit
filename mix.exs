@@ -42,6 +42,7 @@ defmodule Conduit.Mixfile do
       {:exconstructor, "~> 1.1"},
       {:commanded, "~> 0.16.0"},
       {:commanded_eventstore_adapter, "~> 0.4.0"},
+      {:commanded_ecto_projections, "~> 0.6"},
       {:uuid, "~> 1.1"},
       {:ex_machina, "~> 2.2", only: :test},
       {:mix_test_watch, "~> 0.6.0", only: :dev, runtime: false},
