@@ -41,6 +41,7 @@ defmodule Conduit.Mixfile do
       {:cowboy, "~> 1.0"},
       {:commanded, "~> 0.16.0"},
       {:commanded_eventstore_adapter, "~> 0.4.0"},
+      {:ex_machina, "~> 2.2", only: :test}
     ]
   end
 
