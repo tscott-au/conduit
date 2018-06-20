@@ -26,11 +26,11 @@ defmodule Conduit.DataCase do
     end
   end
 
-  setup _tags do
+  setup do
     Application.stop(:conduit)
     Application.stop(:commanded)
     Application.stop(:eventstore)
-
+    
     reset_eventstore()
     reset_readstore()
 
@@ -39,26 +39,11 @@ defmodule Conduit.DataCase do
     :ok
   end
 
-  @doc """
-  A helper that transform changeset errors to a map of messages.
-
-      assert {:error, changeset} = Accounts.create_user(%{password: "short"})
-      assert "password is too short" in errors_on(changeset).password
-      assert %{password: ["password is too short"]} = errors_on(changeset)
-
-  """
-  def errors_on(changeset) do
-    Ecto.Changeset.traverse_errors(changeset, fn {message, opts} ->
-      Enum.reduce(opts, message, fn {key, value}, acc ->
-        String.replace(acc, "%{#{key}}", to_string(value))
-      end)
-    end)
-  end
-
   defp reset_eventstore do
-    eventstore_config = Application.get_env(:eventstore, EventStore.Storage)
-
-    {:ok, conn} = Postgrex.start_link(eventstore_config)
+    {:ok, conn} =
+      EventStore.configuration()
+      |> EventStore.Config.parse()
+      |> Postgrex.start_link()
 
     EventStore.Storage.Initializer.reset!(conn)
   end
