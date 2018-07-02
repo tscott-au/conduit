@@ -30,15 +30,15 @@ defmodule Conduit.Mixfile do
 
   defp deps do
     [
-      {:commanded, "~> 0.16.0"},
+      {:commanded, "~> 0.15"},
       {:commanded_ecto_projections, "~> 0.6"},
-      {:commanded_eventstore_adapter, "~> 0.4.0"},
+      {:commanded_eventstore_adapter, "~> 0.3"},
       {:cowboy, "~> 1.0"},
       {:exconstructor, "~> 1.1"},
-      {:ex_machina, "~> 2.2", only: :test},
-      {:mix_test_watch, "~> 0.6.0", only: :dev, runtime: false},
-      {:phoenix, "~> 1.3.3"},
-      {:phoenix_ecto, "~> 3.2"},
+      {:ex_machina, "~> 2.1", only: :test},
+      {:mix_test_watch, "~> 0.5", only: :dev, runtime: false},
+      {:phoenix, "~> 1.3"},
+      {:phoenix_ecto, "~> 3.3"},
       {:postgrex, ">= 0.0.0"},
       {:gettext, "~> 0.11"},
       {:uuid, "~> 1.1"},
