@@ -4,5 +4,5 @@ defmodule Conduit.Router do
   alias Conduit.Accounts.Aggregates.User
   alias Conduit.Accounts.Commands.RegisterUser
 
-  dispatch [RegisterUser], to: User, identity: :uuid
+  dispatch [RegisterUser], to: User, identity: :user_uuid
 end

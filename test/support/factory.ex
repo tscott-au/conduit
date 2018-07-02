@@ -1,6 +1,6 @@
-# test/support/factory.ex
 defmodule Conduit.Factory do
   use ExMachina
+
   alias Conduit.Accounts.Commands.RegisterUser
 
   def user_factory do

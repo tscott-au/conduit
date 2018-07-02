@@ -1,19 +1,15 @@
-defmodule Conduit.Accounts.Projectors.User do
-  use Commanded.Projections.Ecto,
-    name: "Accounts.Projectors.User",
-    consistency: :strong
+defmodule Conduit.Accounts.Projections.User do
+  use Ecto.Schema
 
-  alias Conduit.Accounts.Events.UserRegistered
-  alias Conduit.Accounts.User
+  @primary_key {:uuid, :binary_id, autogenerate: false}
 
-  project %UserRegistered{} = registered do
-    Ecto.Multi.insert(multi, :user, %User{
-      uuid: registered.uuid,
-      username: registered.username,
-      email: registered.email,
-      hashed_password: registered.hashed_password,
-      bio: nil,
-      image: nil,
-    })
+  schema "accounts_users" do
+    field :username, :string, unique: true
+    field :email, :string, unique: true
+    field :hashed_password, :string
+    field :bio, :string
+    field :image, :string
+
+    timestamps()
   end
 end

@@ -15,6 +15,7 @@ defmodule ConduitWeb.Endpoint do
     plug Phoenix.CodeReloader
   end
 
+  plug Plug.RequestId
   plug Plug.Logger
 
   plug Plug.Parsers,
@@ -31,7 +32,7 @@ defmodule ConduitWeb.Endpoint do
   plug Plug.Session,
     store: :cookie,
     key: "_conduit_key",
-    signing_salt: "L0/JNy+y"
+    signing_salt: "4gT/qM5J"
 
   plug ConduitWeb.Router
 
